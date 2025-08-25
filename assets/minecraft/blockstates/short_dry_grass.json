@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+      "model": "minecraft:block/short_dry_grass"
+      },
+      {
+        "weight": 2,
+      "model": "minecraft:block/short_dry_grass_2"
+      },
+      {
+        "weight": 2,
+      "model": "minecraft:block/short_dry_grass_3"
+      },
+      {
+        "weight": 3,
+      "model": "minecraft:block/short_dry_grass_4"
+      }
+    ]
+  }
+}
