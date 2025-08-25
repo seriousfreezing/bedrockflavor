@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "layer0": "minecraft:block/jungle_leaves",
+    "layer1": "minecraft:item/jungle_leaves_overlay"
+  }
+}
