@@ -2,10 +2,6 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
-	"textures": {
-		"particle": "block/oak_leaves",
-		"all": "block/oak_leaves"
-	},
 	"elements": [
 		{
 			"from": [0, 0, 0],

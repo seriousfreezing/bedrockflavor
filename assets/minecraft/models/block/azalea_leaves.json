@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "particle": "block/azalea_leaves",
+    "all": "minecraft:block/azalea_leaves"
+  }
+}
