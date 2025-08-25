@@ -1,0 +1,22 @@
+{
+    "options.off": "\u0002",
+    "options.on": "\u0001",
+    "options.video": "\u0011 Video",
+    "options.language": "\u0014 Language",
+    "options.accessibility": "\u0013 Accessibility",
+    "options.sounds": "\u0012 Sound",
+    "options.fov.max": "110",
+    "options.fov.min": "70",
+    "options.controls": "\u0009 Keyboard & Mouse",
+    "options.skinCustomisation": "\u0010 Account",
+    "options.resourcepack": "\u0008 Resource Packs",
+    "menu.multiplayer": "\u0015 Servers",
+    "gui.advancements": "\u0016 Advancements",
+    "deathScreen.title": "\u0003",
+    "deathScreen.title.hardcore": "\u0004",
+    "selectWorld.dataPacks": "\u0005 Data Packs",
+    "selectWorld.experiments": "\u0006 Experiments",
+    "selectWorld.gameRules": "\u0007 Game Rules",
+    "item.minecraft.map": "Empty Locator Map",
+    "title.credits": "©Mojang AB"
+}

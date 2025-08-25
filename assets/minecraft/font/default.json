@@ -1,0 +1,140 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/toggle_on.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\u0001"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/toggle_off.png",
+            "ascent": 11,
+            "height": 16,
+            "chars": [
+                "\u0002"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:gui/title/you_died.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\u0003"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:gui/title/game_over.png",
+            "ascent": 9,
+            "height": 9,
+            "chars": [
+                "\u0004"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/datapack.png",
+            "ascent": 9,
+            "height": 9,
+            "chars": [
+                "\u0005"
+            ]
+        },
+                {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/experiments.png",
+            "ascent": 9,
+            "height": 9,
+            "chars": [
+                "\u0006"
+            ]
+        },
+                {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/gamerules.png",
+            "ascent": 9,
+            "height": 9,
+            "chars": [
+                "\u0007"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/resource.png",
+            "ascent": 8,
+            "chars": [
+                "\u0008"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/keyboard.png",
+            "ascent": 8,
+            "chars": [
+                "\u0009"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/account.png",
+            "ascent": 8,
+            "chars": [
+                "\u0010"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/video.png",
+            "ascent": 8,
+            "chars": [
+                "\u0011"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/sound.png",
+            "ascent": 8,
+            "chars": [
+                "\u0012"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/accessibility.png",
+            "ascent": 8,
+            "chars": [
+                "\u0013"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/language.png",
+            "ascent": 8,
+            "chars": [
+                "\u0014"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/server.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\u0015"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/achievements.png",
+            "ascent": 8,
+            "chars": [
+                "\u0016"
+            ]
+        }
+    ]
+}
