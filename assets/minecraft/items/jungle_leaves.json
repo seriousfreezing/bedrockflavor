@@ -5,6 +5,21 @@
       {
         "model": {
           "type": "minecraft:model",
+          "model": "minecraft:item/jungle_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -12012264
+      }
+    ]
+        },
+        "when": [
+          "gui"
+        ]
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
           "model": "minecraft:block/jungle_leaves_item",
     "tints": [
       {
@@ -18,7 +33,6 @@
           "firstperson_lefthand",
           "thirdperson_righthand",
           "thirdperson_lefthand",
-          "gui",
           "ground",
           "fixed"
         ]
