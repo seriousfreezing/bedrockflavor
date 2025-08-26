@@ -7,16 +7,16 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-10, 55, 0],
-			"translation": [10.5, 17, -4]
+			"rotation": [0, 90, -180],
+			"translation": [7.5, -17, 9]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [-10, 55, 0],
-			"translation": [1.5, 17, 9.75]
+			"rotation": [0, 90, -180],
+			"translation": [7.5, -17, -7]
 		},
 		"firstperson_righthand": {
 			"rotation": [0, -90, 25],
-			"translation": [-3, 15.5, 0.5]
+			"translation": [-3, 17, 1]
 		},
 		"firstperson_lefthand": {
 			"rotation": [0, 90, -25],
