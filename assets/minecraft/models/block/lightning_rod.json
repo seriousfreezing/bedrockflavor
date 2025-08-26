@@ -1,5 +1,5 @@
 {
-    "parent": "block/block",
+    "parent": "block/block_light",
     "display": {
         "head": {
             "rotation": [ -180, 0, 0 ],
@@ -17,6 +17,7 @@
     "elements": [
         {   "from": [ 6, 12, 6 ],
             "to": [ 10, 16, 10 ],
+            "shade": false,
             "faces": {
                 "north": { "uv": [ 0, 0, 4, 4 ],"texture": "#texture" },
                 "south": { "uv": [ 0, 0, 4, 4 ],"texture": "#texture" },
@@ -27,6 +28,7 @@
             }
         },
         {   "from": [ 7, 0, 7 ],
+            "shade": false,
             "to": [ 9, 12, 9 ],
             "faces": {
                 "north": { "uv": [ 0, 4, 2, 16 ],"texture": "#texture" },
