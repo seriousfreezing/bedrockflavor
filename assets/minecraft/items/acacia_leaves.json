@@ -5,7 +5,7 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:block/jungle_leaves_item",
+          "model": "minecraft:item/acacia_leaves",
     "tints": [
       {
         "type": "minecraft:constant",
@@ -14,19 +14,13 @@
     ]
         },
         "when": [
-          "firstperson_righthand",
-          "firstperson_lefthand",
-          "thirdperson_righthand",
-          "thirdperson_lefthand",
-          "gui",
-          "ground",
-          "fixed"
+          "gui"
         ]
       }
     ],
     "fallback": {
       "type": "minecraft:model",
-      "model": "minecraft:block/jungle_leaves",
+      "model": "minecraft:block/acacia_leaves",
     "tints": [
       {
         "type": "minecraft:constant",
