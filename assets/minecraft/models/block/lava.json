@@ -1,0 +1,6 @@
+{   "parent": "block/block_light",
+    "textures": {
+        "particle": "block/lava_still"
+    }
+}
+
