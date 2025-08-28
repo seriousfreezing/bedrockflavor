@@ -1,5 +1,5 @@
 This resource pack brings several features from the Bedrock edition to Java.  
-It will soon be open-source. If you want to report a bug or comment, [click here.](https://www.curseforge.com/)
+If you want to report a bug or comment, [click here.](https://www.curseforge.com/)
 
 # ✨ Features
 - Buttons redesigned with accurate Bedrock translations and side icons.
@@ -14,3 +14,6 @@ It will soon be open-source. If you want to report a bug or comment, [click here
 - It should work on most recent versions of the game.
 - Fully compatible with Sodium.
 - Not tested with Optifine.
+
+# ⚠️ Disclaimer
+- NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
