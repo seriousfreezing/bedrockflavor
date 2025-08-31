@@ -11,9 +11,8 @@ If you want to report a bug or comment, [click here.](https://www.curseforge.com
 - And more subtle adjustments to enhance consistency.
 
 # ⚙️ Compatibility
-- It should work on most recent versions of the game.
 - Fully compatible with Sodium.
 - Not tested with Optifine.
 
 # ⚠️ Disclaimer
-- NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+- Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
