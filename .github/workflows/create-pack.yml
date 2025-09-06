@@ -3,7 +3,6 @@ name: Create Pack
 on:
   push:
 
-# Necessário para criar Releases com o GITHUB_TOKEN
 permissions:
   contents: write
 
@@ -21,7 +20,7 @@ jobs:
 
       - name: Prepare names (sanitize branch + short SHA)
         run: |
-          BRANCH='${{ steps["branch-name"].outputs.current_branch }}'
+          BRANCH='${{ steps.branch-name.outputs.current_branch }}'
           SAFE_BRANCH="${BRANCH//\//-}"          # troca / por - para nomes de arquivo/tag
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
           echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
