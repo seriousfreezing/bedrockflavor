@@ -9,8 +9,8 @@ on:
 
 # Edit
 env:
-  PROJECT_VERSION: "1.0.0"
-  BUILD_TYPE: "alpha"  # alpha/beta/release
+  PROJECT_VERSION: "0.0.1"
+  BUILD_TYPE: "release"  # alpha/beta/release
 
 permissions:
   contents: write
