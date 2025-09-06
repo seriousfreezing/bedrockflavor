@@ -3,6 +3,7 @@ name: Create Pack
 on:
   push:
 
+# Necessário para criar Releases com o GITHUB_TOKEN
 permissions:
   contents: write
 
@@ -18,23 +19,30 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v6.4
 
-      - name: Upload artifact
+      - name: Prepare names (sanitize branch + short SHA)
+        run: |
+          BRANCH='${{ steps["branch-name"].outputs.current_branch }}'
+          SAFE_BRANCH="${BRANCH//\//-}"          # troca / por - para nomes de arquivo/tag
+          echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+          echo "ZIP_NAME=bedrockflavor-${SAFE_BRANCH}-${SHORT_SHA}.zip" >> $GITHUB_ENV
+
+      - name: Build ZIP (assets/, LICENSE, pack.mcmeta)
+        run: |
+          mkdir -p build
+          zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
+
+      - name: Upload artifact (same ZIP as release)
         uses: actions/upload-artifact@v4
         with:
-          name: bedrockflavor-${{ steps.branch-name.outputs.current_branch }}
-          path: |
-            assets
-            LICENSE
-            pack.mcmeta
+          name: ${{ env.ZIP_NAME }}
+          path: build/${{ env.ZIP_NAME }}
 
-      - name: Create Release
+      - name: Create GitHub Release (attach the ZIP)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.branch-name.outputs.current_branch }}-${{ github.sha }}
-          name: bedrockflavor - ${{ steps.branch-name.outputs.current_branch }}
-          files: |
-            assets/**
-            LICENSE
-            pack.mcmeta
+          tag_name: ${{ env.SAFE_BRANCH }}-${{ github.sha }}
+          name: bedrockflavor - ${{ env.SAFE_BRANCH }} (${{ env.SHORT_SHA }})
+          files: build/${{ env.ZIP_NAME }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
