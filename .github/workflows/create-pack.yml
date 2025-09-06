@@ -24,19 +24,20 @@ jobs:
 
           BRANCH='${{ steps.branch-name.outputs.current_branch }}'
           if [ "$BRANCH" = "main" ]; then
+            BUILD_TYPE="stable"
             SAFE_BRANCH="stable"
           else
+            BUILD_TYPE="experimental"
             SAFE_BRANCH="${BRANCH//\//-}"
           fi
 
-          SHORT_SHA=${GITHUB_SHA::7}
-          ZIP_NAME="bedrockflavor-${PROJECT_VERSION}-${SAFE_BRANCH}-${SHORT_SHA}.zip"
-          RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${SAFE_BRANCH} (${SHORT_SHA})"
-          RELEASE_DESC="Automatic experimental build for branch **${SAFE_BRANCH}** (commit ${SHORT_SHA})"
+          ZIP_NAME="bedrockflavor-${PROJECT_VERSION}-${BUILD_TYPE}.zip"
+          RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${BUILD_TYPE^}"
+          RELEASE_DESC="Automatic ${BUILD_TYPE} build for branch **${SAFE_BRANCH}**"
 
           echo "PROJECT_VERSION=$PROJECT_VERSION" >> $GITHUB_ENV
+          echo "BUILD_TYPE=$BUILD_TYPE" >> $GITHUB_ENV
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
-          echo "SHORT_SHA=$SHORT_SHA" >> $GITHUB_ENV
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
@@ -46,7 +47,7 @@ jobs:
           mkdir -p build
           zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
 
-      - name: Upload artifact
+      - name: Upload artifact (final zip only)
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ZIP_NAME }}
@@ -55,7 +56,7 @@ jobs:
       - name: Create GitHub Release (attach the ZIP)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${PROJECT_VERSION}-${{ env.SAFE_BRANCH }}-${{ github.sha }}
+          tag_name: "${{ env.PROJECT_VERSION }}-${{ env.BUILD_TYPE }}"
           name: ${{ env.RELEASE_NAME }}
           body: ${{ env.RELEASE_DESC }}
           files: build/${{ env.ZIP_NAME }}
