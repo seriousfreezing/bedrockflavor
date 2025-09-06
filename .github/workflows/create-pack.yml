@@ -47,11 +47,14 @@ jobs:
           mkdir -p build
           zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
 
-      - name: Upload artifact (final zip only)
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ZIP_NAME }}
-          path: build/${{ env.ZIP_NAME }}
+          path: |
+            assets
+            LICENSE
+            pack.mcmeta
 
       - name: Create GitHub Release (attach the ZIP)
         uses: softprops/action-gh-release@v2
