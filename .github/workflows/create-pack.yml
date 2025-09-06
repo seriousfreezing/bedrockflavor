@@ -117,11 +117,15 @@ jobs:
             build/${{ env.ZIP_NAME }}.sig
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  
       - name: Sign ZIP with GPG
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+
+          echo "$GPG_PRIVATE_KEY_BASE64" | base64 --decode | gpg --batch --import
+
           gpg --batch --yes --output "build/${ZIP_NAME}.sig" --detach-sign "build/${ZIP_NAME}"
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PRIVATE_KEY_BASE64: ${{ secrets.GPG_PRIVATE_KEY_BASE64 }}
