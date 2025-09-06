@@ -32,6 +32,8 @@ jobs:
           fi
 
           ZIP_NAME="bedrockflavor-${PROJECT_VERSION}-${BUILD_TYPE}.zip"
+          ARTIFACT_BASE="${ZIP_NAME%.zip}"
+
           RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${BUILD_TYPE^}"
           RELEASE_DESC="Automatic ${BUILD_TYPE} build for branch **${SAFE_BRANCH}**"
 
@@ -39,6 +41,7 @@ jobs:
           echo "BUILD_TYPE=$BUILD_TYPE" >> $GITHUB_ENV
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          echo "ARTIFACT_BASE=$ARTIFACT_BASE" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
 
@@ -47,10 +50,10 @@ jobs:
           mkdir -p build
           zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
 
-      - name: Upload artifact
+      - name: Upload artifact (files, not nested zip)
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.ZIP_NAME }}
+          name: ${{ env.ARTIFACT_BASE }}
           path: |
             assets
             LICENSE
