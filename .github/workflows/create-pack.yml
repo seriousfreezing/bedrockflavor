@@ -18,30 +18,41 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v6.4
 
-      - name: Prepare names (sanitize branch + short SHA)
+      - name: Prepare names and description
         run: |
           BRANCH='${{ steps.branch-name.outputs.current_branch }}'
-          SAFE_BRANCH="${BRANCH//\//-}"          # troca / por - para nomes de arquivo/tag
+          SAFE_BRANCH="${BRANCH//\//-}"
+          SHORT_SHA=${GITHUB_SHA::7}
+          ZIP_NAME="bedrockflavor-${SAFE_BRANCH}-${SHORT_SHA}.zip"
+          RELEASE_NAME="BedrockFlavor - ${SAFE_BRANCH} (${SHORT_SHA})"
+          RELEASE_DESC="Automatic experimental build for branch **${SAFE_BRANCH}** (commit ${SHORT_SHA})"
+          
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
-          echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
-          echo "ZIP_NAME=bedrockflavor-${SAFE_BRANCH}-${SHORT_SHA}.zip" >> $GITHUB_ENV
+          echo "SHORT_SHA=$SHORT_SHA" >> $GITHUB_ENV
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
+          echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
 
       - name: Build ZIP (assets/, LICENSE, pack.mcmeta)
         run: |
           mkdir -p build
           zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
 
-      - name: Upload artifact (same ZIP as release)
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ZIP_NAME }}
-          path: build/${{ env.ZIP_NAME }}
+          path: |
+            assets
+            LICENSE
+            pack.mcmeta
 
       - name: Create GitHub Release (attach the ZIP)
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.SAFE_BRANCH }}-${{ github.sha }}
-          name: bedrockflavor - ${{ env.SAFE_BRANCH }} (${{ env.SHORT_SHA }})
+          name: ${{ env.RELEASE_NAME }}
+          body: ${{ env.RELEASE_DESC }}
           files: build/${{ env.ZIP_NAME }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
