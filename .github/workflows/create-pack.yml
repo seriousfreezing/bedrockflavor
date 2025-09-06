@@ -72,7 +72,7 @@ jobs:
             build/${{ env.ZIP_NAME }}
           retention-days: 14
 
-      - name: Create GitHub release (release only)
+      - name: Create release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         uses: softprops/action-gh-release@v2
         with:
