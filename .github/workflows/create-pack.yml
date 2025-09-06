@@ -7,10 +7,10 @@ on:
     tags:
       - '**'
 
-# Edit
+# Change the information to the current version of the resource pack.
 env:
   PROJECT_VERSION: "0.0.1"
-  BUILD_TYPE: "release"  # alpha/beta/release
+  BUILD_TYPE: "release"  # Options: alpha, beta, release.
 
 permissions:
   contents: write
@@ -52,7 +52,7 @@ jobs:
 
           SHORT_SHA="${GITHUB_SHA:0:7}"
           RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${FINAL_BUILD_TYPE^}"
-          RELEASE_DESC="Automatic ${FINAL_BUILD_TYPE} build (commit ${SHORT_SHA})"
+          RELEASE_DESC="Release made from the commit: ${SHORT_SHA}"
 
           echo "FINAL_BUILD_TYPE=$FINAL_BUILD_TYPE" >> $GITHUB_ENV
           echo "SAFE_BRANCH=$SAFE_BRANCH" >> $GITHUB_ENV
@@ -62,7 +62,7 @@ jobs:
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
 
-      - name: Build ZIP (assets/, LICENSE, pack.mcmeta)
+      - name: Build .zip
         run: |
           mkdir -p build
           if [ ! -d assets ]; then
@@ -77,15 +77,20 @@ jobs:
             echo "ERROR: LICENSE not found" >&2
             exit 1
           fi
-          zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta
+          if [ ! -f pack.png ]; then
+            echo "ERROR: pack.png not found" >&2
+            exit 1
+          fi
+          zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta pack.png
 
-      - name: Compute SHA1 for the ZIP (kept in build/)
+
+      - name: Compute SHA1 for the .zip
         run: |
           sha1sum "build/${ZIP_NAME}" > "build/${ZIP_NAME}.sha1"
           echo "SHA1 created (build/${ZIP_NAME}.sha1):"
           cat "build/${ZIP_NAME}.sha1"
 
-      - name: Upload artifact (alpha/beta only)
+      - name: Create artifact (alpha/beta only)
         if: ${{ env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta' }}
         uses: actions/upload-artifact@v4
         with:
@@ -94,13 +99,14 @@ jobs:
             assets
             LICENSE
             pack.mcmeta
+            pack.png
           retention-days: 14
 
-      - name: Create GitHub Release (attach ZIP + SHA1)
+      - name: Create release (+SHA1)
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: "${{ env.PROJECT_VERSION }}-release"
+          tag_name: "${{ env.PROJECT_VERSION }}"
           name: ${{ env.RELEASE_NAME }}
           body: ${{ env.RELEASE_DESC }}
           files: |
