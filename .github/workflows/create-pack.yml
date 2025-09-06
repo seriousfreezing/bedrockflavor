@@ -1,4 +1,4 @@
-name: Create Pack (manual version & build_type + SHA1 only on Release)
+name: Create Pack (manual version & build_type + SHA256, manifest.txt, GPG)
 
 on:
   push:
@@ -29,19 +29,11 @@ jobs:
 
       - name: Prepare names, validate build_type and export env
         run: |
-          echo "PROJECT_VERSION (from env): $PROJECT_VERSION"
-          echo "BUILD_TYPE (from env): $BUILD_TYPE"
-
           BUILD_TYPE_LOWER="$(echo "$BUILD_TYPE" | tr '[:upper:]' '[:lower:]')"
 
           case "$BUILD_TYPE_LOWER" in
-            alpha|beta|release)
-              FINAL_BUILD_TYPE="$BUILD_TYPE_LOWER"
-              ;;
-            *)
-              echo "WARN: BUILD_TYPE '$BUILD_TYPE' is not one of (alpha,beta,release). Falling back to 'experimental'."
-              FINAL_BUILD_TYPE="experimental"
-              ;;
+            alpha|beta|release) FINAL_BUILD_TYPE="$BUILD_TYPE_LOWER" ;;
+            *) echo "WARN: BUILD_TYPE '$BUILD_TYPE' not valid. Falling back to 'experimental'." ; FINAL_BUILD_TYPE="experimental" ;;
           esac
 
           BRANCH='${{ steps.branch-name.outputs.current_branch }}'
@@ -49,9 +41,14 @@ jobs:
 
           ZIP_NAME="bedrockflavor-${PROJECT_VERSION}-${FINAL_BUILD_TYPE}.zip"
           ARTIFACT_BASE="${ZIP_NAME%.zip}"
-
           SHORT_SHA="${GITHUB_SHA:0:7}"
-          RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${FINAL_BUILD_TYPE^}"
+
+          if [ "$FINAL_BUILD_TYPE" = "release" ]; then
+            RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION}"
+          else
+            RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${FINAL_BUILD_TYPE^}"
+          fi
+
           RELEASE_DESC="Release made from the commit: ${SHORT_SHA}"
 
           echo "FINAL_BUILD_TYPE=$FINAL_BUILD_TYPE" >> $GITHUB_ENV
@@ -65,30 +62,34 @@ jobs:
       - name: Build .zip
         run: |
           mkdir -p build
-          if [ ! -d assets ]; then
-            echo "ERROR: assets/ not found" >&2
-            exit 1
-          fi
-          if [ ! -f pack.mcmeta ]; then
-            echo "ERROR: pack.mcmeta not found" >&2
-            exit 1
-          fi
-          if [ ! -f LICENSE ]; then
-            echo "ERROR: LICENSE not found" >&2
-            exit 1
-          fi
-          if [ ! -f pack.png ]; then
-            echo "ERROR: pack.png not found" >&2
-            exit 1
-          fi
+          for f in assets pack.mcmeta LICENSE pack.png; do
+            if [ ! -e "$f" ]; then
+              echo "ERROR: $f not found" >&2
+              exit 1
+            fi
+          done
           zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta pack.png
 
-
-      - name: Compute SHA1 for the .zip
+      - name: Compute SHA256 for the .zip
         run: |
-          sha1sum "build/${ZIP_NAME}" > "build/${ZIP_NAME}.sha1"
-          echo "SHA1 created (build/${ZIP_NAME}.sha1):"
-          cat "build/${ZIP_NAME}.sha1"
+          sha256sum "build/${ZIP_NAME}" > "build/${ZIP_NAME}.sha256"
+          echo "SHA256 created (build/${ZIP_NAME}.sha256):"
+          cat "build/${ZIP_NAME}.sha256"
+
+      - name: Create manifest.txt
+        run: |
+          echo "Generating manifest.txt..."
+          MANIFEST="build/manifest.txt"
+          > "$MANIFEST"
+          for f in assets pack.mcmeta LICENSE pack.png; do
+            if [ -d "$f" ]; then
+              find "$f" -type f -exec sha256sum {} \; >> "$MANIFEST"
+            else
+              sha256sum "$f" >> "$MANIFEST"
+            fi
+          done
+          echo "manifest.txt contents:"
+          cat "$MANIFEST"
 
       - name: Create artifact (alpha/beta only)
         if: ${{ env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta' }}
@@ -102,7 +103,7 @@ jobs:
             pack.png
           retention-days: 14
 
-      - name: Create release (+SHA1)
+      - name: Create GitHub Release (+SHA256, manifest, GPG)
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         uses: softprops/action-gh-release@v2
         with:
@@ -111,6 +112,16 @@ jobs:
           body: ${{ env.RELEASE_DESC }}
           files: |
             build/${{ env.ZIP_NAME }}
-            build/${{ env.ZIP_NAME }}.sha1
+            build/${{ env.ZIP_NAME }}.sha256
+            build/manifest.txt
+            build/${{ env.ZIP_NAME }}.sig
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sign ZIP with GPG
+        if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          gpg --batch --yes --output "build/${ZIP_NAME}.sig" --detach-sign "build/${ZIP_NAME}"
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
