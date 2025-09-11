@@ -1,5 +1,5 @@
 {
-    "parent": "block/cube_light",
+    "parent": "block/cube",
     "textures": {
         "particle": "#end",
         "down": "#end",

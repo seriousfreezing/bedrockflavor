@@ -1,9 +1,9 @@
 {
-    "parent": "block/cube_light",
+    "parent": "block/cube",
     "textures": {
-        "particle": "#end",
-        "down": "#end",
-        "up": "#end",
+        "particle": "#side",
+        "down": "#side",
+        "up": "#top",
         "north": "#side",
         "east": "#side",
         "south": "#side",
