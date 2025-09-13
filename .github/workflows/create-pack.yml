@@ -9,7 +9,7 @@ on:
 
 # Change the information to the current version of the resource pack.
 env:
-  PROJECT_VERSION: "0.0.2"
+  PROJECT_VERSION: "0.0.3"
   BUILD_TYPE: "alpha"  # Options: alpha, beta, release.
 
 permissions:
