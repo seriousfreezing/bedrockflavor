@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/trapped_chest"
+    "particle": "minecraft:block/chest_top"
   }
 }
