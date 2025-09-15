@@ -45,7 +45,7 @@
                 "\u0005"
             ]
         },
-                {
+        {
             "type": "bitmap",
             "file": "bedrockflavor:icons/experiments.png",
             "ascent": 9,
@@ -54,7 +54,7 @@
                 "\u0006"
             ]
         },
-                {
+        {
             "type": "bitmap",
             "file": "bedrockflavor:icons/gamerules.png",
             "ascent": 9,
@@ -134,6 +134,62 @@
             "ascent": 8,
             "chars": [
                 "\u0016"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/search.png",
+            "ascent": 8,
+            "chars": [
+                "\u0017"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/general.png",
+            "ascent": 8,
+            "chars": [
+                "\u0018"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/advanced.png",
+            "ascent": 8,
+            "chars": [
+                "\u0019"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/worlds.png",
+            "ascent": 8,
+            "chars": [
+                "\u0021"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/reset.png",
+            "ascent": 8,
+            "chars": [
+                "\u0022"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/general_settings.png",
+            "ascent": 8,
+            "chars": [
+                "\u0023"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/edit.png",
+            "ascent": 8,
+            "chars": [
+                "\u0024"
             ]
         }
     ]
