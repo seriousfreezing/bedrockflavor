@@ -142,5 +142,17 @@
     "key.advancements": "Achievements",
     "telemetry.event.advancement_made.description": "Understanding the context behind receiving an achievement can help us better understand and improve the progression of the game.",
     "telemetry.event.advancement_made.title": "Achievement Made",
-    "telemetry.property.advancement_id.title": "Achievement ID"
+    "telemetry.property.advancement_id.title": "Achievement ID",
+    "advMode.setCommand": "Command Block",
+    "advMode.command": "Command Input",
+    "advMode.mode.auto": "\ub027 Repeat",
+    "advMode.mode.redstone": "\ub026 Impulse",
+    "advMode.mode.sequence": "\ub025 Chain",
+    "pack.selected.title": "Active",
+    "pack.available.title": "My Packs",
+    "pack.dropInfo": "",
+    "resourcePack.vanilla.description": "The default Minecraft graphics!",
+    "resourcePack.vanilla.name": "Minecraft Texture Pack",
+    "resourcePack.programmer_art.name": "Minecraft Classic Texture Pack",
+    "options.telemetry": "Telemetry"
 }

@@ -1,1 +1,1 @@
-{"pack":{"description":"Adds several features of the Bedrock edition.","pack_format":46,"supported_formats":[46,999]}}
+{"pack":{"description":{"translate":"bedrockflavor.description","fallback":"Adds several features of the Bedrock edition."},"pack_format":46,"supported_formats":[ 46, 999],"min_format":46,"max_format":999}}

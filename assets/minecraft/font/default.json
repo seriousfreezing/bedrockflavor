@@ -191,6 +191,30 @@
             "chars": [
                 "\ub024"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/chain.png",
+            "ascent": 8,
+            "chars": [
+                "\ub025"
+            ]
+        },
+                {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/impulse.png",
+            "ascent": 8,
+            "chars": [
+                "\ub026"
+            ]
+        },
+                {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/repeat.png",
+            "ascent": 8,
+            "chars": [
+                "\ub027"
+            ]
         }
     ]
 }
