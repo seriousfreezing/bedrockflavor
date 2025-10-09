@@ -47,16 +47,16 @@ jobs:
       - name: Build .zip and manifest.txt
         run: |
           mkdir -p build
-          for f in assets pack.mcmeta LICENSE pack.png; do
+          for f in assets pack.mcmeta LICENSE pack.png respackopts.json5; do
             if [ ! -e "$f" ]; then
               echo "ERROR: $f not found" >&2
               exit 1
             fi
           done
 
-          find assets LICENSE pack.mcmeta pack.png -type f > build/manifest.txt
+          find assets LICENSE pack.mcmeta pack.png respackopts.json5 -type f > build/manifest.txt
 
-          zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta pack.png
+          zip -r "build/${ZIP_NAME}" assets LICENSE pack.mcmeta pack.png respackopts.json5
 
       - name: Compute SHA256 for release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
