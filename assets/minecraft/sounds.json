@@ -1,0 +1,434 @@
+ {
+  "music.creative": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music/game/creative/aria_math",
+        "stream": true
+      },
+      {
+        "name": "music/game/creative/biome_fest",
+        "stream": true
+      },
+      {
+        "name": "music/game/creative/blind_spots",
+        "stream": true
+      },
+      {
+        "name": "music/game/creative/dreiton",
+        "stream": true
+      },
+      {
+        "name": "music/game/creative/haunt_muskie",
+        "stream": true
+      },
+      {
+        "name": "music/game/creative/taswell",
+        "stream": true
+      }
+    ]
+  },
+  "block.glass.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/glass1",
+        "pitch": 1.1
+      },
+      {
+      "name": "random/glass2",
+        "pitch": 1.1
+      },
+      {
+      "name": "random/glass3",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.glass.hit": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "step/stone1",
+        "pitch": 1.2
+      },
+      {
+      "name": "step/stone2",
+        "pitch": 1.2
+      },
+      {
+      "name": "step/stone3",
+        "pitch": 1.2
+      },
+      {
+      "name": "step/stone4",
+        "pitch": 1.2
+      },
+      {
+      "name": "step/stone5",
+        "pitch": 1.2
+      },
+      {
+      "name": "step/stone6",
+        "pitch": 1.2
+      }
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.glass.place": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/stone1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.grass.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/grass1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass4",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass5",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass6",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.grass.place": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/grass1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass4",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass5",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/grass6",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+ "block.gravel.break": {
+  "replace": true,
+    "sounds": [
+      {
+      "name": "dig/gravel1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.gravel.place": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/gravel1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/gravel4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.stone.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/stone1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.stone.place": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/stone1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/stone4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.wood.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/wood1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/wood2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/wood3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/wood4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.wool.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/cloth1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.wool.place": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "dig/cloth1",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth2",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth3",
+        "pitch": 1.1
+      },
+      {
+      "name": "dig/cloth4",
+        "pitch": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "entity.ender_eye.death": {
+    "replace": true,
+    "sounds": [
+      "entity/itemframe/break1",
+      "entity/itemframe/break2",
+      "entity/itemframe/break3"
+    ],
+    "subtitle": "subtitles.entity.ender_eye.death"
+  },
+  "block.chest.close": {
+    "replace": true,
+    "sounds": [
+      {
+        "attenuation_distance": 12,
+       "name":"block/chest/close1",
+       "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.block.chest.close"
+  },
+  "entity.ender_eye.launch": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4,
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.entity.ender_eye.launch"
+  },
+  "entity.ender_pearl.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.ender_pearl.throw"
+  },
+  "entity.snow_golem.shoot": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.snowball.throw"
+  },
+  "entity.snowball.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.snowball.throw"
+  },
+  "entity.experience_bottle.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.potion.throw"
+  },
+  "entity.egg.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.potion.throw"
+  },
+  "entity.lingering_potion.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.potion.throw"
+  },
+  "entity.splash_potion.break": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/glass1",
+        "pitch": 1.05
+      },
+      {
+      "name": "random/glass2",
+        "pitch": 1.05
+      },
+      {
+      "name": "random/glass3",
+        "pitch": 1.05
+      }
+    ],
+    "subtitle": "subtitles.entity.potion.splash"
+  },
+  "entity.splash_potion.throw": {
+    "replace": true,
+    "sounds": [
+      {
+      "name": "random/bow2",
+        "pitch": 1.4
+      }
+    ],
+    "subtitle": "subtitles.entity.potion.throw"
+  }
+}
