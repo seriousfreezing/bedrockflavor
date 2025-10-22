@@ -63,7 +63,6 @@
     "key.chat": "Chat button",
     "options.credits_and_attribution": "\ub023 General",
     "credits_and_attribution.screen.title": "General Settings",
-    "options.gamma.default": "50%",
     "options.gamma.max": "100%",
     "options.gamma.min": "0%",
     "options.graphics": "Graphics Mode",
