@@ -1,22 +1,23 @@
-This resource pack brings several features from the Bedrock edition to Java.
+<br>![about](https://cdn.modrinth.com/data/cached_images/14c7aad3f30e25256446337c482646cbf0ad2507.png)
 
-# ✨ Features
-**Changed to match bedrock:**
-- Models of blocks such as cactus, leaves and the arms of pistons.
-- Inventory icons like maps, glass panes, beds and chests.
-- Conduit and explosion particles.
-- Dragon fireballs.
-- Lighting of blocks
-- Button translations and side icons.
-- Font.
-- And many more adjustments to enhance consistency!
+Minecraft Java and Bedrock differ in many subtle ways: textures, animations, particles, and various visual details. This resource pack aims to **restore visual parity** between the two editions, refining Java’s visuals to more closely **match the Bedrock style.**
 
-# ⚙️ Compatibility
-- Fully compatible with Sodium.
-- Not tested with Optifine.
-- Versions below 1.21.4 may still have some features working, but are not **supported.**
-  - 1.12 or older: Not working.
-  - 1.13: Many features work, but some don’t.
+![divider](https://cdn.modrinth.com/data/cached_images/b726dffef3bff5a52af4ab17734c700754958997_0.webp)
 
-# ⚠️ Disclaimer
-- Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
+<br>![features](https://cdn.modrinth.com/data/cached_images/b166bc402e7aacbd3e4c6a09622c3ef217230866.png)
+
+### Improvements
+- In addition to altered textures, we have also changed: Sounds, block lighting, particles, and much more!
+- Even the smallest details have been adjusted to match the Bedrock experience.
+
+### Support for Popular Mods
+- Beyond base game assets, we also bring the Bedrock visual identity to several modded interfaces.
+- Examples: Bedrockify, Emotecraft, Iris, Modmenu, Resourcify, and more!
+
+### Compatibility
+- Compatible with Sodium. Not tested with Optifine.
+- Versions below 1.21.4 may retain partial functionality, but are **not supported.**
+
+<br>![divider](https://cdn.modrinth.com/data/cached_images/b726dffef3bff5a52af4ab17734c700754958997_0.webp)
+
+**<p align="center">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>**
