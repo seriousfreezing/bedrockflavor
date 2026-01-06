@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "minecraft:block/weathered_copper_chest_front",
+    "side": "minecraft:block/weathered_copper_chest_side",
+    "top": "minecraft:block/weathered_copper_chest_top"
+  }
+}

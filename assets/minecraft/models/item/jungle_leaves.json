@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"all": "item/jungle_leaves_overlay",
+		"all": "block/jungle_leaves_overlay",
 		"particle": "block/jungle_leaves"
 	},
 	"elements": [
