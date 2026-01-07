@@ -1,1 +1,35 @@
-{"pack":{"description":{"translate":"bedrockflavor.description","fallback":"Adds several features of the Bedrock edition."},"pack_format":46,"supported_formats":[ 46, 999],"min_format":46,"max_format":999},"overlays":{"entries":[{"formats":{"min_inclusive":46,"max_inclusive":74},"min_format":46,"max_format":74,"directory":"overlay_74"}]}}
+{
+    "pack": {
+        "description": {
+            "translate": "bedrockflavor.description",
+            "fallback": "Adds several features of the Bedrock edition."
+        },
+        "pack_format": 46,
+        "supported_formats": [
+            46,
+            999
+        ],
+        "min_format": 46,
+        "max_format": 999
+    },
+    "overlays": {
+        "entries": [
+            {
+                "directory": "overlay_74",
+                "formats": {
+                    "min_inclusive": 46,
+                    "max_inclusive": 74
+                },
+                "min_format": 46,
+                "max_format": 74
+            },
+            {
+                "directory": "overlay_60",
+                "formats": [
+                    33,
+                    60
+                ]
+            }
+        ]
+    }
+}
