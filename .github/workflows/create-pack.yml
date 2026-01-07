@@ -47,16 +47,16 @@ jobs:
       - name: Build .zip and manifest.txt
         run: |
           mkdir -p build
-          for f in assets pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
+          for f in assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
             if [ ! -e "$f" ]; then
               echo "ERROR: $f not found" >&2
               exit 1
             fi
           done
 
-          find assets pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS -type f > build/manifest.txt
+          find assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS -type f > build/manifest.txt
 
-          zip -r "build/${ZIP_NAME}" assets pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
+          zip -r "build/${ZIP_NAME}" assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
 
       - name: Compute SHA256 for release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
