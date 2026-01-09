@@ -7,10 +7,10 @@
         "pack_format": 46,
         "supported_formats": [
             46,
-            999
+            75
         ],
         "min_format": 46,
-        "max_format": 999
+        "max_format": 75
     },
     "overlays": {
         "entries": [

@@ -32,9 +32,9 @@ jobs:
             *) FINAL_BUILD_TYPE="experimental" ;;
           esac
 
-          ZIP_NAME="bedrockflavor-${PROJECT_VERSION}-${FINAL_BUILD_TYPE}.zip"
-          ARTIFACT_NAME="${ZIP_NAME%.zip}"
-          RELEASE_NAME="BedrockFlavor ${PROJECT_VERSION} - ${FINAL_BUILD_TYPE^}"
+          ZIP_NAME="bedrockflavor-${PROJECT_VERSION}.zip"
+          ARTIFACT_NAME="${ZIP_NAME%.zip}-${FINAL_BUILD_TYPE}"
+          RELEASE_NAME="${PROJECT_VERSION}"
           SHORT_SHA="${GITHUB_SHA:0:7}"
           RELEASE_DESC="Release made from the commit: ${SHORT_SHA}"
 
