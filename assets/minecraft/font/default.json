@@ -163,7 +163,8 @@
         {
             "type": "bitmap",
             "file": "bedrockflavor:icons/worlds.png",
-            "ascent": 8,
+            "ascent": 9,
+            "height": 10,
             "chars": [
                 "\ub021"
             ]
