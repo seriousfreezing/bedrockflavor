@@ -3,15 +3,15 @@ name: Create Pack
 on:
   push:
     branches:
-      - '**'
+      - "**"
     tags:
-      - '**'
+      - "**"
 
 # Change the information to the current version of the resource pack.
 # Version bumps will only occur with each release and not with unstable builds.
 env:
   PROJECT_VERSION: "4.0.0"
-  BUILD_TYPE: "beta"  # Options: alpha, beta, release.
+  BUILD_TYPE: "beta" # Options: alpha, beta, release.
 
 permissions:
   contents: write
@@ -44,7 +44,29 @@ jobs:
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
 
-      - name: Build .zip and manifest.txt
+      - name: Minify JSON files
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+          minify_json() {
+            local file="$1"
+            tmp_file="${file}.tmp"
+            jq -c . "$file" | tr -d '\n' > "$tmp_file" && mv "$tmp_file" "$file"
+          }
+
+          find . \
+            -type f \( -name "*.json" -o -name "*.json5" -o -name "*.mcmeta" \) \
+            ! -path "./.git/*" \
+            ! -path "./.github/*" \
+            ! -path "./build/*" \
+            | while read file; do
+              echo "Minifying $file"
+              minify_json "$file"
+            done
+
+      - name: Build .zip and manifest.txt (Release only)
+        if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         run: |
           mkdir -p build
           for f in assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
@@ -70,7 +92,14 @@ jobs:
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: |
-            build/${{ env.ZIP_NAME }}
+            assets
+            overlay_60
+            overlay_74
+            pack.mcmeta
+            LICENSE
+            pack.png
+            respackopts.json5
+            CREDITS
           retention-days: 14
 
       - name: Create release

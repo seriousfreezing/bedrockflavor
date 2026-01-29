@@ -609,7 +609,7 @@
       }
     ]
   },
-    "music_disc.cat": {
+  "music_disc.cat": {
     "replace": true,
     "sounds": [
       {

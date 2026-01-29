@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
 		"particle": "block/mangrove_roots_side",
@@ -9,15 +7,73 @@
 	},
 	"elements": [
 		{
-			"from": [0, -0.002, 0],
-			"to": [16, 16, 16],
+			"from": [
+				0,
+				-0.002,
+				0
+			],
+			"to": [
+				16,
+				16,
+				16
+			],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#side"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#side"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#side"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#side"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up"},
-				"down": {"uv": [0, 16, 16, 0], "texture": "#top", "cullface": "up"}
+				"north": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#side"
+				},
+				"east": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#side"
+				},
+				"south": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#side"
+				},
+				"west": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#side"
+				},
+				"up": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#top",
+					"cullface": "up"
+				},
+				"down": {
+					"uv": [
+						0,
+						16,
+						16,
+						0
+					],
+					"texture": "#top",
+					"cullface": "up"
+				}
 			}
 		}
 	]

@@ -201,7 +201,7 @@
                 "\ub025"
             ]
         },
-                {
+        {
             "type": "bitmap",
             "file": "bedrockflavor:icons/impulse.png",
             "ascent": 8,
@@ -209,7 +209,7 @@
                 "\ub026"
             ]
         },
-                {
+        {
             "type": "bitmap",
             "file": "bedrockflavor:icons/repeat.png",
             "ascent": 8,

@@ -1,40 +1,102 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"particle": "item/trident"
 	},
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-10, 55, 0],
-			"translation": [10.5, 17, -4]
+			"rotation": [
+				-10,
+				55,
+				0
+			],
+			"translation": [
+				10.5,
+				17,
+				-4
+			]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [-10, 55, 0],
-			"translation": [1.5, 17, 9.75]
+			"rotation": [
+				-10,
+				55,
+				0
+			],
+			"translation": [
+				1.5,
+				17,
+				9.75
+			]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [-3, 15.5, 0.5]
+			"rotation": [
+				0,
+				-90,
+				25
+			],
+			"translation": [
+				-3,
+				15.5,
+				0.5
+			]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [13, 17, 1]
+			"rotation": [
+				0,
+				90,
+				-25
+			],
+			"translation": [
+				13,
+				17,
+				1
+			]
 		},
 		"ground": {
-			"translation": [4, 4, 2],
-			"scale": [0.25, 0.25, 0.25]
+			"translation": [
+				4,
+				4,
+				2
+			],
+			"scale": [
+				0.25,
+				0.25,
+				0.25
+			]
 		},
 		"gui": {
-			"rotation": [15, -25, -5],
-			"translation": [2, 3, 0],
-			"scale": [0.65, 0.65, 0.65]
+			"rotation": [
+				15,
+				-25,
+				-5
+			],
+			"translation": [
+				2,
+				3,
+				0
+			],
+			"scale": [
+				0.65,
+				0.65,
+				0.65
+			]
 		},
 		"fixed": {
-			"rotation": [0, -180, 0],
-			"translation": [-2, 4, -5],
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [
+				0,
+				-180,
+				0
+			],
+			"translation": [
+				-2,
+				4,
+				-5
+			],
+			"scale": [
+				0.5,
+				0.5,
+				0.5
+			]
 		}
 	}
 }

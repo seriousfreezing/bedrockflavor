@@ -6,12 +6,12 @@
         "model": {
           "type": "minecraft:model",
           "model": "minecraft:item/birch_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -8345771
-      }
-    ]
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -8345771
+            }
+          ]
         },
         "when": [
           "gui"
@@ -21,12 +21,12 @@
     "fallback": {
       "type": "minecraft:model",
       "model": "minecraft:block/birch_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -8345771
-      }
-    ]
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": -8345771
+        }
+      ]
     },
     "property": "minecraft:display_context"
   }

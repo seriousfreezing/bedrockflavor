@@ -1,19 +1,49 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
 		"particle": "#fire"
 	},
 	"elements": [
 		{
-			"from": [0, 0, 0.01],
-			"to": [16, 22.4, 0.01],
+			"from": [
+				0,
+				0,
+				0.01
+			],
+			"to": [
+				16,
+				22.4,
+				0.01
+			],
 			"shade": false,
-			"rotation": {"angle": 7.5, "axis": "x", "origin": [0, 0, 0]},
+			"rotation": {
+				"angle": 7.5,
+				"axis": "x",
+				"origin": [
+					0,
+					0,
+					0
+				]
+			},
 			"faces": {
-				"north": {"uv": [16, 0, 0, 16], "texture": "#fire"},
-				"south": {"uv": [16, 0, 0, 16], "texture": "#fire"}
+				"north": {
+					"uv": [
+						16,
+						0,
+						0,
+						16
+					],
+					"texture": "#fire"
+				},
+				"south": {
+					"uv": [
+						16,
+						0,
+						0,
+						16
+					],
+					"texture": "#fire"
+				}
 			}
 		}
 	]

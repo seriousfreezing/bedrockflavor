@@ -6,12 +6,12 @@
         "model": {
           "type": "minecraft:model",
           "model": "minecraft:item/mangrove_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -7158200
-      }
-    ]
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -7158200
+            }
+          ]
         },
         "when": [
           "gui"
@@ -21,12 +21,12 @@
     "fallback": {
       "type": "minecraft:model",
       "model": "minecraft:block/mangrove_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -7158200
-      }
-    ]
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": -7158200
+        }
+      ]
     },
     "property": "minecraft:display_context"
   }

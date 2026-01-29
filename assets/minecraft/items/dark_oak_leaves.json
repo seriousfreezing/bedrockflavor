@@ -6,12 +6,12 @@
         "model": {
           "type": "minecraft:model",
           "model": "minecraft:item/dark_oak_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12012264
-      }
-    ]
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -12012264
+            }
+          ]
         },
         "when": [
           "gui"
@@ -21,12 +21,12 @@
     "fallback": {
       "type": "minecraft:model",
       "model": "minecraft:block/dark_oak_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12012264
-      }
-    ]
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": -12012264
+        }
+      ]
     },
     "property": "minecraft:display_context"
   }

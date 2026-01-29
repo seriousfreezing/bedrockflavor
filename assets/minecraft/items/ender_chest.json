@@ -14,10 +14,10 @@
     ],
     "fallback": {
       "type": "minecraft:special",
-    "base": "minecraft:item/ender_chest",
-    "model": {
-      "type": "minecraft:chest",
-      "texture": "minecraft:ender"
+      "base": "minecraft:item/ender_chest",
+      "model": {
+        "type": "minecraft:chest",
+        "texture": "minecraft:ender"
       }
     },
     "property": "minecraft:display_context"

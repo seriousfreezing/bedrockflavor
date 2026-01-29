@@ -6,12 +6,12 @@
         "model": {
           "type": "minecraft:model",
           "model": "minecraft:item/acacia_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12012264
-      }
-    ]
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -12012264
+            }
+          ]
         },
         "when": [
           "gui"
@@ -21,12 +21,12 @@
     "fallback": {
       "type": "minecraft:model",
       "model": "minecraft:block/acacia_leaves",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12012264
-      }
-    ]
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": -12012264
+        }
+      ]
     },
     "property": "minecraft:display_context"
   }
