@@ -69,16 +69,16 @@ jobs:
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
         run: |
           mkdir -p build
-          for f in assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
+          for f in assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
             if [ ! -e "$f" ]; then
               echo "ERROR: $f not found" >&2
               exit 1
             fi
           done
 
-          find assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS -type f > build/manifest.txt
+          find assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS -type f > build/manifest.txt
 
-          zip -r "build/${ZIP_NAME}" assets overlay_60 overlay_74 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
+          zip -r "build/${ZIP_NAME}" assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
 
       - name: Compute SHA256 for release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
@@ -93,8 +93,12 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}
           path: |
             assets
+            overlay_55
             overlay_60
+            overlay_63
+            overlay_69
             overlay_74
+            overlay_75
             pack.mcmeta
             LICENSE
             pack.png

@@ -5,30 +5,56 @@
             "fallback": "Adds several features of the Bedrock edition."
         },
         "pack_format": 46,
-        "supported_formats": [
-            46,
-            75
-        ],
         "min_format": 46,
-        "max_format": 75
+        "max_format": 75,
+        "supported_formats": {
+            "min_inclusive": 46,
+            "max_inclusive": 75
+        }
     },
     "overlays": {
         "entries": [
             {
+                "directory": "overlay_75",
+                "formats": [48, 75],
+                "min_format": 48,
+                "max_format": 75
+            },
+            {
                 "directory": "overlay_74",
-                "formats": {
-                    "min_inclusive": 46,
-                    "max_inclusive": 74
-                },
+                "formats": [46, 74],
                 "min_format": 46,
                 "max_format": 74
             },
             {
+                "directory": "overlay_69",
+                "formats": [55, 69],
+                "min_format": 55,
+                "max_format": 69
+            },
+            {
+                "directory": "overlay_64",
+                "formats": [63, 64],
+                "min_format": 63,
+                "max_format": 64
+            },
+            {
+                "directory": "overlay_63",
+                "formats": [63, 75],
+                "min_format": 63,
+                "max_format": 75
+            },
+            {
                 "directory": "overlay_60",
-                "formats": [
-                    33,
-                    60
-                ]
+                "formats": [33, 60],
+                "min_format": 33,
+                "max_format": 60
+            },
+            {
+                "directory": "overlay_55",
+                "formats": [46, 55],
+                "min_format": 46,
+                "max_format": 55
             }
         ]
     }
