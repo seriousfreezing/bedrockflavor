@@ -10,7 +10,7 @@ on:
 # Change the information to the current version of the resource pack.
 # Version bumps will only occur with each release and not with unstable builds.
 env:
-  PROJECT_VERSION: "5.0.0"
+  PROJECT_VERSION: "6.0.0"
   BUILD_TYPE: "beta" # Options: alpha, beta, release.
 
 permissions:
@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Prepare names and validate build type
         run: |
@@ -44,11 +46,27 @@ jobs:
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
 
-      - name: Minify JSON files
+      - name: Check if relevant files changed
+        id: changes
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD 2>/dev/null || git ls-files)
 
+          IGNORE_REGEX="^(README\.md$|\.gitignore$|\.gitattributes$)"
+
+          SHOULD_BUILD=false
+
+          for file in $CHANGED_FILES; do
+            if [[ ! $file =~ $IGNORE_REGEX ]]; then
+              SHOULD_BUILD=true
+            break
+          fi
+          done
+
+          echo "should_build=$SHOULD_BUILD" >> $GITHUB_OUTPUT
+
+      - name: Minify JSON files
+        if: steps.changes.outputs.should_build == 'true'
+        run: |
           minify_json() {
             local file="$1"
             tmp_file="${file}.tmp"
@@ -66,7 +84,7 @@ jobs:
             done
 
       - name: Build .zip and manifest.txt (Release only)
-        if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
+        if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
           mkdir -p build
           for f in assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
@@ -81,13 +99,13 @@ jobs:
           zip -r "build/${ZIP_NAME}" assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
 
       - name: Compute SHA256 for release
-        if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
+        if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
           sha256sum "build/${ZIP_NAME}" > "build/${ZIP_NAME}.sha256"
           cat "build/${ZIP_NAME}.sha256"
 
       - name: Upload artifact (alpha/beta only)
-        if: ${{ env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta' }}
+        if: ${{ (env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta') && steps.changes.outputs.should_build == 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.ARTIFACT_NAME }}
@@ -107,7 +125,7 @@ jobs:
           retention-days: 14
 
       - name: Create release
-        if: ${{ env.FINAL_BUILD_TYPE == 'release' }}
+        if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: "${{ env.PROJECT_VERSION }}"
