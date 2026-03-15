@@ -28,7 +28,7 @@
     "merchant.title": "%s: %s",
     "createWorld.tab.game.title": "\ub018 General",
     "createWorld.tab.world.title": "\ub019 Advanced",
-    "menu.online": "Realms",
+    "menu.online": "\ub028 Realms",
     "menu.options": "Settings",
     "menu.singleplayer": "\ub021 Worlds",
     "options.glintSpeed": "Glint speed",

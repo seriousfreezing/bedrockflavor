@@ -216,6 +216,15 @@
             "chars": [
                 "\ub027"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/realms.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\ub028"
+            ]
         }
     ]
 }
