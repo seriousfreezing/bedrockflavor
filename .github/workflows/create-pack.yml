@@ -2,10 +2,10 @@ name: Create Pack
 
 on:
   push:
-    branches:
-      - "**"
-    tags:
-      - "**"
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - .gitattributes
 
 # Change the information to the current version of the resource pack.
 # Version bumps will only occur with each release and not with unstable builds.
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Prepare names and validate build type
         run: |
@@ -45,64 +45,56 @@ jobs:
           echo "ARTIFACT_NAME=$ARTIFACT_NAME" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
           echo "RELEASE_DESC=$RELEASE_DESC" >> $GITHUB_ENV
+          echo FILES=assets overlay_* pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS >> $GITHUB_ENV
 
       - name: Check if relevant files changed
         id: changes
         run: |
-          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD 2>/dev/null || git ls-files)
-
-          IGNORE_REGEX="^(README\.md$|\.gitignore$|\.gitattributes$)"
-
-          SHOULD_BUILD=false
-
-          for file in $CHANGED_FILES; do
-            if [[ ! $file =~ $IGNORE_REGEX ]]; then
-              SHOULD_BUILD=true
-            break
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            CHANGED=$(git diff --name-only HEAD^ HEAD)
+          else
+            CHANGED=$(git ls-files)
           fi
-          done
 
-          echo "should_build=$SHOULD_BUILD" >> $GITHUB_OUTPUT
+          if echo "$CHANGED" | grep -Ev "^(README\.md$|\.gitignore$|\.gitattributes$)" | grep -q .; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_build=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Minify JSON files
         if: steps.changes.outputs.should_build == 'true'
         run: |
           minify_json() {
             local file="$1"
-            tmp_file="${file}.tmp"
-            jq -c . "$file" | tr -d '\n' > "$tmp_file" && mv "$tmp_file" "$file"
+            echo "Minified $file"
+            jq -c . "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
           }
 
-          find . \
-            -type f \( -name "*.json" -o -name "*.json5" -o -name "*.mcmeta" \) \
-            ! -path "./.git/*" \
-            ! -path "./.github/*" \
-            ! -path "./build/*" \
-            | while read file; do
-              echo "Minifying $file"
-              minify_json "$file"
-            done
+          export -f minify_json
+
+          find $FILES \
+            -type f \( -name "*.json" -o -name "*.json5" -o -name "*.mcmeta" \) -print0 \
+            | xargs -0 -n1 -P$(nproc) bash -c 'minify_json "$1"' _
 
       - name: Build .zip and manifest.txt (Release only)
         if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
           mkdir -p build
-          for f in assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS; do
+          for f in $FILES; do
             if [ ! -e "$f" ]; then
               echo "ERROR: $f not found" >&2
               exit 1
             fi
           done
 
-          find assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS -type f > build/manifest.txt
+          find $FILES -type f > build/manifest.txt
 
-          zip -r "build/${ZIP_NAME}" assets overlay_55 overlay_60 overlay_63 overlay_69 overlay_74 overlay_75 pack.mcmeta LICENSE pack.png respackopts.json5 CREDITS
-
+          zip -rq -1 -X -D "build/${ZIP_NAME}" $FILES
       - name: Compute SHA256 for release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
-          sha256sum "build/${ZIP_NAME}" > "build/${ZIP_NAME}.sha256"
-          cat "build/${ZIP_NAME}.sha256"
+          sha256sum "build/${ZIP_NAME}" | tee "build/${ZIP_NAME}.sha256"
 
       - name: Upload artifact (alpha/beta only)
         if: ${{ (env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta') && steps.changes.outputs.should_build == 'true' }}
@@ -110,13 +102,8 @@ jobs:
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: |
-            assets
-            overlay_55
-            overlay_60
-            overlay_63
-            overlay_69
-            overlay_74
-            overlay_75
+            assets/**
+            overlay_*/**
             pack.mcmeta
             LICENSE
             pack.png
