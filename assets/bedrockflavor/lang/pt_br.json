@@ -907,5 +907,6 @@
     "debug.options.search": "",
     "gui.language.search": "",
     "gui.packSelection.search": "",
-    "gui.recipebook.search_hint": ""
+    "gui.recipebook.search_hint": "",
+    "lanServer.otherPlayers": "Permissões do Jogador"
 }

@@ -1,48 +1,49 @@
 {
-  "textures": {
-    "particle": "#fire"
-  },
   "ambientocclusion": false,
+  "textures": {
+    "particle": "#fan"
+  },
   "elements": [
     {
       "from": [
         0,
-        0,
-        0.01
+        8,
+        0
       ],
       "to": [
         16,
-        22.4,
-        0.01
+        8,
+        16
       ],
-      "rotation": {
-        "origin": [
-          0,
-          0,
-          0
-        ],
-        "axis": "x",
-        "angle": 22.5
-      },
       "shade": false,
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          8,
+          8,
+          14
+        ],
+        "rescale": true
+      },
       "faces": {
-        "south": {
+        "up": {
           "uv": [
             0,
             0,
             16,
             16
           ],
-          "texture": "#fire"
+          "texture": "#fan"
         },
-        "north": {
+        "down": {
           "uv": [
-            0,
-            0,
             16,
-            16
+            16,
+            0,
+            0
           ],
-          "texture": "#fire"
+          "texture": "#fan"
         }
       }
     }

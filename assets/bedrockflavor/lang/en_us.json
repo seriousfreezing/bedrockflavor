@@ -155,5 +155,7 @@
     "debug.options.search": "",
     "gui.language.search": "",
     "gui.packSelection.search": "",
-    "gui.recipebook.search_hint": ""
+    "gui.recipebook.search_hint": "",
+    "menu.paused": "Game is paused",
+    "lanServer.otherPlayers": "Player Permissions"
 }
