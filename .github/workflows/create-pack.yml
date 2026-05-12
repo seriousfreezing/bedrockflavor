@@ -77,7 +77,7 @@ jobs:
             -type f \( -name "*.json" -o -name "*.json5" -o -name "*.mcmeta" \) -print0 \
             | xargs -0 -n1 -P$(nproc) bash -c 'minify_json "$1"' _
 
-      - name: Build .zip and manifest.txt (Release only)
+      - name: Build .zip and manifest.txt for Release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
           mkdir -p build
@@ -91,12 +91,13 @@ jobs:
           find $FILES -type f > build/manifest.txt
 
           zip -rq -1 -X -D "build/${ZIP_NAME}" $FILES
-      - name: Compute SHA256 for release
+
+      - name: Compute SHA256 for Release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         run: |
           sha256sum "build/${ZIP_NAME}" | tee "build/${ZIP_NAME}.sha256"
 
-      - name: Upload artifact (alpha/beta only)
+      - name: Upload for Testing
         if: ${{ (env.FINAL_BUILD_TYPE == 'alpha' || env.FINAL_BUILD_TYPE == 'beta') && steps.changes.outputs.should_build == 'true' }}
         uses: actions/upload-artifact@v7
         with:
@@ -111,7 +112,7 @@ jobs:
             CREDITS
           retention-days: 14
 
-      - name: Create release
+      - name: Upload for Release
         if: ${{ env.FINAL_BUILD_TYPE == 'release' && steps.changes.outputs.should_build == 'true' }}
         uses: softprops/action-gh-release@v2
         with:
