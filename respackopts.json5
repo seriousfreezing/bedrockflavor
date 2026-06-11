@@ -3,7 +3,6 @@
     "version": 13,
     "capabilities": ["FileFilter"],
     "conf": {
-        "clouds": true,
         "sky": true
     }
 }

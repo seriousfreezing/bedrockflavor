@@ -179,7 +179,7 @@
         },
         {
             "type": "bitmap",
-            "file": "bedrockflavor:icons/general_settings.png",
+            "file": "bedrockflavor:icons/link.png",
             "ascent": 8,
             "chars": [
                 "\ub023"
