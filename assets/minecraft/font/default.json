@@ -225,6 +225,38 @@
             "chars": [
                 "\ub028"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/plus.png",
+            "ascent": 8,
+            "chars": [
+                "\ub029"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/delete.png",
+            "ascent": 8,
+            "chars": [
+                "\ub030"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/reset_w.png",
+            "ascent": 8,
+            "chars": [
+                "\ub031"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "bedrockflavor:icons/save.png",
+            "ascent": 8,
+            "chars": [
+                "\ub032"
+            ]
         }
     ]
 }
